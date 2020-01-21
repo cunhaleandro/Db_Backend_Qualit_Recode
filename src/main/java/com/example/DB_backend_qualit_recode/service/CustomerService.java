@@ -27,5 +27,18 @@ public class CustomerService {
 	public Optional<Customer> findById(long id) {
 		return customerRepository.findById(id);
 	}
+	public Customer update(long id, Customer customer) {
+		Optional<Customer> currentCustomer = customerRepository.findById(id);
+		if(currentCustomer.isPresent()) {
+			
+			currentCustomer.get().setName(customer.getName());
+			currentCustomer.get().setCPF(customer.getCPF());
+			currentCustomer.get().getAccounts().addAll(customer.getAccounts());
+			return customerRepository.save(currentCustomer.get());
+		}else {
+			return null;
+			/*throw new ResourceNotFoundException("Customer", "Client",  "O Client com id: "+id+"Não Encontrado!" );*/
+		}
+	}
 
 }
