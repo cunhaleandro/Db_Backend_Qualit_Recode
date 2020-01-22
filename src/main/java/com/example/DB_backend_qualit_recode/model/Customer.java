@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 * Todos os atributos dessa classe também serão mapeados com as respectivas colunas.
 * Podemos omitir a anotação @Column para cada atributo da classe desde que o nome do atributo seja o mesmo nome da coluna.
 * Caso a coluna tenha o nome diferente do atributo precisamos especificar.
-*/
+*/ 
 @Entity
 public class Customer {
 

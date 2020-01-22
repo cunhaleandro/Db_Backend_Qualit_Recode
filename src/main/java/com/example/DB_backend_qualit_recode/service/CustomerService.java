@@ -3,6 +3,7 @@ package com.example.DB_backend_qualit_recode.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.DB_backend_qualit_recode.model.Customer;
@@ -38,6 +39,13 @@ public class CustomerService {
 		}else {
 			return null;
 			/*throw new ResourceNotFoundException("Customer", "Client",  "O Client com id: "+id+"Não Encontrado!" );*/
+		}
+	
+	}
+	public void delete(long id) {
+		try {
+		customerRepository.deleteById(id);
+		}catch (EmptyResultDataAccessException e) {
 		}
 	}
 
